@@ -1,13 +1,17 @@
 services:
   api:
     container_name: evolution_api
-    image: atendai/evolution-api:homolog
+    image: atendai/evolution-api:latest
     restart: always
     depends_on:
       - redis
       - postgres
     ports:
       - 8080:8080
+    # dns:
+    #   - 8.8.8.8
+    #   - 8.8.4.4
+    #   - 1.1.1.1
     volumes:
       - evolution_instances:/evolution/instances
     networks:
